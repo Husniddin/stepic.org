@@ -1,4 +1,5 @@
 t = int(input())
+print('t = ' + str(t))
 classes = {}
 
 for x in range(t):
@@ -24,16 +25,42 @@ for x in range(t):
 			classes[k].extend(classes[child[0]])
 
 print(classes)
-exit()
+
 r = int(input())
+print('r = ' + str(r))
+
+# excs = []
+excs = {}
+nw = []
+# for x in range(r):
+# 	exception = input()
+# 	excs.append(exception)
 
 for x in range(r):
+	exception = input()
+
+	s = False
+
+	for exc in excs:
+		if exception in excs[exc]:
+			nw.append(exception)
+			s = True
+			break
+
+	if s:
+		continue		
+
+	ch_s = []
+	for ch in classes:
+		if exception in classes[ch]:
+			ch_s.append(ch)
 	
-	rr = input().split(" ")
-	
-	if rr[1] in classes and rr[0] in classes[rr[1]]:
-		print("Yes")
-	elif rr[0] == rr[1]:
-		print("Yes")
-	else:
-		print("No")
+	excs[exception] = ch_s
+
+print('excs = ')
+print(excs)
+print('nw = ')
+print(nw)
+
+for n in nw:
+	print(n)
