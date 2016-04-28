@@ -1,0 +1,21 @@
+# BaseException
+Exception
+class NonPositiveError(Exception):
+	pass
+
+class PositiveList(list):
+	def append(self, x):
+		if x>0:
+			super(PositiveList, self).append(x)
+		else:
+			raise NonPositiveError()
+
+l = PositiveList()
+l.append(5)
+l.append(-5)
+l.append(6)
+l.append(-6)
+l.append(7)
+l.append(-7)
+
+print(l)
