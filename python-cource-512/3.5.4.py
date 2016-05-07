@@ -43,7 +43,7 @@ for j in js:
 
 	cls[cl] = count
 
-	print(childs)
+	# print(childs)
 	childs = []
 
 # print(cls)
